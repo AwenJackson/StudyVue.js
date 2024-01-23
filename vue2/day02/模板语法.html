@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>模板语法</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<!-- 
+    插值语法往往用于在标签内部，例如<h3>你好，{{name}}</h3>
+
+    指令语法往往用于解析标签（包括：标签属性，标签体内容，绑定事件......）
+    Vue中有很多指令，且形式都是: v-???格式，此处我们只是拿着v-bind做一个例子
+ -->
+
+<body>
+    <div id="root">
+        <h1>插值语法</h1>
+        <h3>你好，{{name}}</h3>
+        <hr />
+        <h1>指令语法</h1>
+        <!-- :href 相当于 v-bind:href的缩写 -->
+        <a :href="school.url" :style="school.style">点我去{{school.name}}学习</a>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false;
+
+    new Vue({
+        el: '#root',
+        data: {
+            name: 'jack',
+            school: {
+                name:'尚硅谷',
+                url: 'https://www.atguigu.com',
+                style: 'color: brown;'
+            }
+        }
+    })
+</script>
+
+</html>
